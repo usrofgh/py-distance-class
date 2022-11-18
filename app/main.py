@@ -43,6 +43,4 @@ class Distance:
     @staticmethod
     def get_instances_value_or_number(arg: Distance | int | float)\
             -> Distance | int | float:
-        if isinstance(arg, Distance):
-            return arg.km
-        return arg
+        return arg.km if isinstance(arg, Distance) else arg
