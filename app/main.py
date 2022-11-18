@@ -13,10 +13,10 @@ class Distance:
         return f"Distance(km={self.km})"
 
     def __add__(self, other: Distance | int | float) -> Distance:
-        return Distance(self.km + self.return_instance_or_int(other))
+        return Distance(self.km + self.get_instances_value_or_number(other))
 
     def __iadd__(self, other: Distance | int | float) -> Distance:
-        self.km += self.return_instance_or_int(other)
+        self.km += self.get_instances_value_or_number(other)
         return self
 
     def __mul__(self, other: int | float) -> Distance:
@@ -26,22 +26,22 @@ class Distance:
         return Distance(round(self.km / other, 2))
 
     def __lt__(self, other: Distance | int | float) -> bool:
-        return True if self.km < self.return_instance_or_int(other) else False
+        return True if self.km < self.get_instances_value_or_number(other) else False
 
     def __gt__(self, other: Distance | int | float) -> bool:
-        return True if self.km > self.return_instance_or_int(other) else False
+        return True if self.km > self.get_instances_value_or_number(other) else False
 
     def __eq__(self, other: Distance | int | float) -> bool:
-        return True if self.km == self.return_instance_or_int(other) else False
+        return True if self.km == self.get_instances_value_or_number(other) else False
 
     def __le__(self, other: Distance | int | float) -> bool:
-        return True if self.km <= self.return_instance_or_int(other) else False
+        return True if self.km <= self.get_instances_value_or_number(other) else False
 
     def __ge__(self, other: Distance | int | float) -> bool:
-        return True if self.km >= self.return_instance_or_int(other) else False
+        return True if self.km >= self.get_instances_value_or_number(other) else False
 
     @staticmethod
-    def return_instance_or_int(arg: Distance | int | float)\
+    def get_instances_value_or_number(arg: Distance | int | float)\
             -> Distance | int | float:
         if isinstance(arg, Distance):
             return arg.km
