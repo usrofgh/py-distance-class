@@ -26,19 +26,29 @@ class Distance:
         return Distance(round(self.km / other, 2))
 
     def __lt__(self, other: Distance | int | float) -> bool:
-        return True if self.km < self.get_instances_value_or_number(other) else False
+        return True \
+            if self.km < self.get_instances_value_or_number(other) \
+            else False
 
     def __gt__(self, other: Distance | int | float) -> bool:
-        return True if self.km > self.get_instances_value_or_number(other) else False
+        return True \
+            if self.km > self.get_instances_value_or_number(other) \
+            else False
 
     def __eq__(self, other: Distance | int | float) -> bool:
-        return True if self.km == self.get_instances_value_or_number(other) else False
+        return True \
+            if self.km == self.get_instances_value_or_number(other) \
+            else False
 
     def __le__(self, other: Distance | int | float) -> bool:
-        return True if self.km <= self.get_instances_value_or_number(other) else False
+        return True \
+            if self.km <= self.get_instances_value_or_number(other) \
+            else False
 
     def __ge__(self, other: Distance | int | float) -> bool:
-        return True if self.km >= self.get_instances_value_or_number(other) else False
+        return True \
+            if self.km >= self.get_instances_value_or_number(other) \
+            else False
 
     @staticmethod
     def get_instances_value_or_number(arg: Distance | int | float)\
