@@ -6,10 +6,10 @@ class Distance:
         self.km = km
 
     def __str__(self) -> str:
-        return f"Distance: {self.km} kilometers."
+        return f"{self.__class__.__name__}: {self.km} kilometers."
 
     def __repr__(self) -> str:
-        return f"Distance(km={self.km})"
+        return f"{self.__class__.__name__}(km={self.km})"
 
     def __add__(self, another_distance: Distance | int | float) -> Distance:
         another_distance = Distance.detect_type_and_get_value(another_distance)
