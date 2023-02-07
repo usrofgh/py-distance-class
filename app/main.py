@@ -11,13 +11,13 @@ class Distance:
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(km={self.km})"
 
-    def __add__(self, another_distance: Distance | int | float) -> Distance:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return Distance(self.km + another_distance)
+    def __add__(self, other: Distance | int | float) -> Distance:
+        other = Distance.detect_type_and_get_value(other)
+        return Distance(self.km + other)
 
-    def __iadd__(self, another_distance: Distance | int | float) -> Distance:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        self.km += another_distance
+    def __iadd__(self, other: Distance | int | float) -> Distance:
+        other = Distance.detect_type_and_get_value(other)
+        self.km += other
         return self
 
     def __mul__(self, number: int) -> Distance:
@@ -27,34 +27,34 @@ class Distance:
         calculated = round(self.km / number, 2)
         return Distance(calculated)
 
-    def __lt__(self, another_distance: Distance | int | float) -> bool:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return self.km < another_distance
+    def __lt__(self, other: Distance | int | float) -> bool:
+        other = Distance.detect_type_and_get_value(other)
+        return self.km < other
 
-    def __gt__(self, another_distance: Distance | int | float) -> bool:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return self.km > another_distance
+    def __gt__(self, other: Distance | int | float) -> bool:
+        other = Distance.detect_type_and_get_value(other)
+        return self.km > other
 
-    def __eq__(self, another_distance: Distance | int | float) -> bool:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return self.km == another_distance
+    def __eq__(self, other: Distance | int | float) -> bool:
+        other = Distance.detect_type_and_get_value(other)
+        return self.km == other
 
-    def __le__(self, another_distance: Distance | int | float) -> bool:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return self.km <= another_distance
+    def __le__(self, other: Distance | int | float) -> bool:
+        other = Distance.detect_type_and_get_value(other)
+        return self.km <= other
 
-    def __ge__(self, another_distance: Distance | int | float) -> bool:
-        another_distance = Distance.detect_type_and_get_value(another_distance)
-        return self.km >= another_distance
+    def __ge__(self, other: Distance | int | float) -> bool:
+        other = Distance.detect_type_and_get_value(other)
+        return self.km >= other
 
     def __len__(self) -> int:
         return self.km
 
     @staticmethod
     def detect_type_and_get_value(
-            another_distance: Distance | int | float
+            other: Distance | int | float
     ) -> Distance | int | float:
 
-        if isinstance(another_distance, Distance):
-            return another_distance.km
-        return another_distance
+        if isinstance(other, Distance):
+            return other.km
+        return other
